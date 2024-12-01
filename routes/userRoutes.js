@@ -1,11 +1,18 @@
 import express from 'express'
-import { fetch, create, update, deleteUser } from '../controller/userController.js'
+import { register, login, update, logout } from '../controller/userController.js'
 
 const route = express.Router()
 
-route.get("/", fetch)
-route.post("/create", create)
-route.put("/update/:id", update)
-route.delete("/delete/:id", deleteUser)
+// // Testing
+// route.get("/", fetch)
+// route.post("/create", create)
+// route.put("/update/:id", update)
+// route.delete("/delete/:id", deleteUser)
+
+// Account
+route.post("/register", register)
+route.post("/login", login)
+route.put("/update", update)
+route.delete("/logout", logout)
 
 export default route;
