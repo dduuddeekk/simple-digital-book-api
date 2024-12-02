@@ -1,5 +1,5 @@
 import express from 'express'
-import { create, listBooks, myBooks, readOne } from '../controller/bookController.js'
+import { create, deleteMyBooks, listBooks, myBooks, readOne } from '../controller/bookController.js'
 
 const route = express.Router()
 
@@ -8,5 +8,6 @@ route.get("/", listBooks)
 route.post("/create", create)
 route.get("/:id", readOne)
 route.post("/author", myBooks)
+route.delete("/delete/:id", deleteMyBooks)
 
 export default route
