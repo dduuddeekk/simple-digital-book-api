@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import express from 'express'
 import userRoutes from './routes/userRoutes.js'
+import bookRoutes from './routes/bookRoutes.js'
 
 dotenv.config()
 const app = express()
@@ -19,3 +20,4 @@ mongoose.connect(mongoUrl).then(() => {
 }).catch((error) => console.log(error))
 
 app.use("/api/user", userRoutes)
+app.use("/api/book", bookRoutes)

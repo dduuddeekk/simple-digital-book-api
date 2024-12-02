@@ -15,4 +15,4 @@ route.post("/login", login)
 route.put("/update", update)
 route.delete("/logout", logout)
 
-export default route;
+export default route
