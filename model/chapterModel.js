@@ -5,6 +5,10 @@ const chapterSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    order:{
+        type:Number,
+        required:true
+    },
     cover:{
         type:String,
         reuqired:false

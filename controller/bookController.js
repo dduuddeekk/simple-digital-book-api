@@ -129,6 +129,50 @@ export const myBooks = async (req, res) => {
     }
 }
 
+export const update = async (req, res) => {
+    try {
+        const authHeader = req.headers.authorization
+        if (!authHeader || !authHeader.startsWith('Bearer ')) return res.status(401).json({
+            error: true,
+            message: "User not logged in."
+        })
+
+        const token = authHeader.split(' ')[1]
+        const tokenExist = await AuthToken.findOne({ token })
+
+        if (!tokenExist) return res.status(401).json({
+            error: true,
+            message: "User not logged in."
+        })
+
+        const userId = tokenExist.userId
+        const author = await User.findOne({ _id: userId })
+        if (!author) res.status(404).json({
+            error: true,
+            message: "User not found."
+        })
+
+        const id = req.params.id
+        const bookUpdate = await Book.findOneAndUpdate({ _id: id, author: author._id }, req.body, { new: true })
+
+        if (!bookUpdate) return res.status(404).json({
+            error: true,
+            message: "Book not found."
+        })
+
+        res.status(200).json({
+            error: false,
+            message: "Book updated successfully.",
+            data: bookUpdate
+        })
+    } catch (error) {
+        res.status(500).json({
+            error: true,
+            message: error.message
+        })
+    }
+}
+
 export const deleteMyBooks = async (req, res) => {
     try {
         const authHeader = req.headers.authorization;
