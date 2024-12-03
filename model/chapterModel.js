@@ -1,4 +1,4 @@
-import mongoose, { trusted } from "mongoose"
+import mongoose from "mongoose";
 
 const chapterSchema = new mongoose.Schema({
     book:{
@@ -33,6 +33,6 @@ const chapterSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-})
+});
 
-export default mongoose.model("chapters", chapterSchema)
+export default mongoose.model("chapters", chapterSchema);

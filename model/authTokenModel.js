@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const authTokenSchema = new mongoose.Schema({
     userId:{
@@ -17,6 +17,6 @@ const authTokenSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-})
+});
 
-export default mongoose.model("auth_tokens", authTokenSchema)
+export default mongoose.model("auth_tokens", authTokenSchema);

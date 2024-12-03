@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const bookSchema = new mongoose.Schema({
     author:{
@@ -29,6 +29,6 @@ const bookSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-})
+});
 
-export default mongoose.model("books", bookSchema)
+export default mongoose.model("books", bookSchema);
